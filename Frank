@@ -1,0 +1,35 @@
+package automationFramework;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Staging {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		String exePath = "C:\\Users\\Indira.Umasankar\\Downloads\\chromedriver_win32\\chromedriver.exe";
+		System.setProperty("webdriver.chrome.driver", exePath);
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://staging.aml/Default.aspx?ReturnUrl=%2Findex.html");
+		driver.findElement(By.id("tbUsername")).sendKeys("aranz");
+		driver.findElement(By.id("tbPassword")).sendKeys("aranz");
+		driver.findElement(By.id("btnLogOn")).click();
+		Thread.sleep(3000);
+		//WebElement parentElement =driver.findElement(By.className("patient-block-title text-center"));
+		//parentElement.findElement(By.partialLinkText("indira indira123")).click();
+		driver.findElement(By.xpath("//*[@id=\"patient-grid\"]/a[1]/div/div[2]")).click();
+		Thread.sleep(40000);
+		for(int i =0; i<100000000 ; i++){
+			driver.findElement(By.xpath("/html/body")).click();
+			Thread.sleep(90000);
+			System.out.println(i);
+						
+		
+			}
+
+		driver.close();
+}
+}
